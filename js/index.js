@@ -139,7 +139,7 @@ let getNewSong = () => {
     activeEle.classList.remove('active-song');
     activeEle.nextElementSibling.classList.add('active-song');
 
-    changeData(++current);
+    changeData(current + 2);
     console.log(current + " added new source");
     console.log(getNextSource(current));
 
@@ -175,7 +175,7 @@ let getPrevSong = () => {
     let current = currentPlayingSong();
     console.log(current + " prev");
     // console.log(getPrevSource(current));
-    changeData(--current);
+    changeData(++current);
     myaudio.src = getPrevSource(current);
     myaudio.load();
     myaudio.play();
@@ -378,7 +378,7 @@ document.getElementById('shuffle').addEventListener('click', () => {
 document.getElementsByClassName('showPlaying')[0].addEventListener('click', () => {
 
     let back = document.getElementById('player-back');
-    document.getElementById('player-back').style.removeProperty('top');
+    // document.getElementById('player-back').style.removeProperty('top');
     back.classList.add('move-out-top');
     back.classList.add('move-in-top');
     let front = document.getElementById('player-front');
