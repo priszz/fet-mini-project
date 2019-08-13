@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="container">
+        <div id="dis"></div>
+        <div id="player-front">
+            <div class="card">
+                <div class="currentTop">
+                    <div></div>
+                    <div class="center">
+                        <span class="nowPlaying">Now Playing</span>
+                    </div>
+                    <div>
+                        <img src="../cardDesign/images/show-playlist.svg" class="showPlaying">
+                    </div>
+
+                </div>
+
+                <div class="img" id="front-image">
+                    <img src="images/cover1.JPEG" alt="">
+                </div>
+                <div class="song-metaData">
+                    <span class="song-album">Album</span>
+                    <span class="song-artist">Artist</span>
+                </div>
+                <!-- <div class="time-progress">
+                    <div id="progress-container">
+                        <input type="range" class="song-slider" />
+                        <progress id="song-played-progress" class="song-played-progress"></progress>
+                        <progress id="song-buffered-progress" class="buffered-progress" value="0"></progress>
+                    </div>
+                </div> -->
+                <audio id="audio">
+                    <source src="audio/horse.mp3" type="audio/mpeg">
+                    <a href="audio/evidence-song.mp3" download></a>
+                </audio>
+                <div id="controls">
+                    <div class="shuffle shuffle-off" id="shuffle"></div>
+                    <div class="prev" id="previous"></div>
+                    <div class="play-pause play" id="play-pause"></div>
+                    <div class="next" id="next"></div>
+                    <div class="repeat repeat-off" id="repeat"></div>
+                </div>
+
+            </div>
+
+            <div id="player-back">
+                <div class="card">
+                    <div class="backTop">
+                        <div></div>
+                        <div class="center">
+                            <span class="nowPlaying">qsxvsdvueue</span>
+                        </div>
+                        <div>
+                            <img src="../cardDesign/images/close.svg" class="closePlaylist">
+                        </div>
+                    </div>
+
+                    <div class="playlist-queue" id="playlist-queue">
+                        <div class="song-container" index=1></div>
+                        <div class="song-container" index=2></div>
+                        <div class="song-container" index=3></div>
+                        <div class="song-container" index=4></div>
+                        <div class="song-container" index=5></div>
+                        <div class="song-container" index=5></div>
+                    </div>
+                    <div class="bottom-player">
+                        <div class="bottom-album">
+                            <img src="images/cover1.JPEG" alt="">
+                        </div>
+                        <div class="song-controller">
+                            <div id="bottom-song-metadata">
+                                <span class="song-album">asdfsd
+                                </span>
+                                <span class="song-artist">
+                                    sdkjbsdasasdasaaasascascasasc
+                                </span>
+                            </div>
+                            <div class="song-controls">
+                                <div class="playlist-prev" id="playlist-previous"></div>
+                                <div class="playlist=play-pause playlist-play" id="playlist-play-pause"></div>
+                                <div class="playlist-next" id="playlist-next"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js" async defer>
+    </script>
+</body>
+
+</html>
