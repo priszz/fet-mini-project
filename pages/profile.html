@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User profile page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../styles/profile.css">
+    <!-- <script src="../js/profile.js"></script> -->
+
+</head>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../album.html">PlanetM</a>
+
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li><a href="#">language</a></li>
+
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span> 
+                        <strong>My profile</strong>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <a href="profile.html">My profile</a>
+                            <a href="../login_register.html">signout</a>
+
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+        </ul>
+
+
+    </div>
+</nav>
+
+
+<body class="profile-page">
+    <div class="page-header header-filter" style="background-image:url('../images/background.jpg');">
+    </div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="../images/a1.webp" class="avatar rounded-circle img-fluid" id="img"
+                                    alt="avatar">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-danger" style="text-decoration: none;border-radius: 15px;"><a
+                        href="profilesetting.html">Edit profile</a></button>
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <form class="form" method="post" id="registrationForm">
+
+                            <div class="form-group">
+
+                                <div class="col-lg-6">
+                                    <label for="first_name">
+                                        <h4 id="first_name">First name : </h4>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-lg-6">
+                                    <label for="last_name">
+                                        <h4 id="last_name">Last name : </h4>
+                                    </label>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-6">
+                                    <label for="mobile">
+                                        <h4 id="mobile">Mobile : </h4>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-lg-12">
+                                    <label for="email">
+                                        <h4 id="email">Email : </h4>
+                                    </label>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-menu">
+        <p>copy right&nbsp;@PlanetM</p>
+    </div>
+    <script>
+        var user = JSON.parse(localStorage.getItem(1));
+        document.getElementById("first_name").innertext = user.fname;
+        document.getElementById("last_name").innerText += user.lname;
+        document.getElementById("mobile").innerText += user.number;
+        document.getElementById("email").innerText += user.email;
+    </script>
+</body>
+
+</html>

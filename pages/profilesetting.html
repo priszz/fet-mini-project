@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User profile page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../styles/profile.css">
+    <!-- <script src="../js/profilesetting.js"></script> -->
+
+</head>
+
+<body class="profile-page">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../album.html">PlanetM</a>
+
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li><a href="#">language</a></li>
+
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span> 
+                            <strong>My profile</strong>
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+
+                            <div class="dropdown-content">
+                                <a href="profile.html">My profile</a>
+                                <a href="../login_register.html">signout</a>
+
+                            </div>
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+
+
+        </div>
+    </nav>
+
+    <div class="page-header header-filter" style="background-image:url('../images/background.jpg');">
+    </div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="../images/a1.webp" class="avatar rounded-circle img-fluid" id="img"
+                                    alt="avatar">
+                                <input type="file" class="text-center center-block file-upload">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <form class="form" method="post" id="registrationForm" onsubmit="save()">
+
+                            <div class="form-group">
+
+                                <div class="col-lg-6">
+                                    <label for="first_name">
+                                        <h4>First name</h4>
+                                    </label>
+                                    <input type="text" class="form-control" name="fname" id="fname"
+                                        pattern="[A-Za-z]{3,25}" placeholder="first name"
+                                        title="enter your first name if any." required focus>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-lg-6">
+                                    <label for="last_name">
+                                        <h4>Last name</h4>
+                                    </label>
+                                    <input type="text" class="form-control" name="lname" id="lname"
+                                        pattern="[A-Za-z]{3,25}" placeholder="last name"
+                                        title="enter your last name if any." required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-6">
+                                    <label for="mobile">
+                                        <h4>Mobile</h4>
+                                    </label>
+                                    <input type="text" class="form-control" name="number" id="number"
+                                        pattern="[7-9][0-9]{9}" placeholder="enter mobile number"
+                                        title="enter your mobile number if any." required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-lg-6">
+                                    <label for="email">
+                                        <h4>Email</h4>
+                                    </label>
+                                    <input type="email" class="form-control" name="email" id="email"
+                                        placeholder="you@email.com" title="enter your email." required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-lg-6">
+                                    <label for="password">
+                                        <h4>Password</h4>
+                                    </label>
+                                    <input type="password" class="form-control" name="rpassword" id="rpassword"
+                                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                                        placeholder="password" title="enter your password." required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-lg-6">
+                                    <label for="password2">
+                                        <h4>confirm password</h4>
+                                    </label>
+                                    <input type="password" class="form-control" name="confirm_password"
+                                        id="confirm_password" oninput="check(this)" placeholder="confirm password"
+                                        title="enter your password2." required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+                                    <button class="btn btn-success" type="submit">
+                                        Save</button>
+                                    <button class="btn btn-danger" type="reset">
+                                        Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-menu">
+        <p>copy right&nbsp;@PlanetM</p>
+    </div>
+</body>
+<script>
+    function save() {
+        event.preventDefault();
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var mobile = document.getElementById("number").value;
+        var Email = document.getElementById("email").value;
+        var password = document.getElementById("rpassword").value;
+        document.getElementById("som").innerHTML = password;
+        console.log(password);
+        let user = {
+            id: 1,
+            fname: fname,
+            lname: lname,
+            number: mobile,
+            email: Email,
+            password: password
+        };
+
+        // addToStorage = (user) => {
+        localStorage.setItem(user.id, JSON.stringify(user));
+    }
+
+    // function check(input) {
+    //     if (input.value != document.getElementById('rpassword').value) {
+    //         input.setCustomValidity('Password Must be Matching.');
+    //     } else {
+    //         input.setCustomValidity('');
+    //     }
+    // }
+</script>
+
+</html>

@@ -1,21 +1,23 @@
 //toogle between Login and Register
-$(function () {
-
-	$('#login-form-link').click(function (e) {
-		$("#login-form").delay(100).fadeIn(100);
-		$("#register-form").fadeOut(100);
-		$('#register-form-link').removeClass('active');
-		$(this).addClass('active');
-		e.preventDefault();
-	});
-	$('#register-form-link').click(function (e) {
-		$("#register-form").delay(100).fadeIn(100);
-		$("#login-form").fadeOut(100);
-		$('#login-form-link').removeClass('active');
-		$(this).addClass('active');
-		e.preventDefault();
-	});
-
+$(function() {
+  $("#login-form-link").click(function(e) {
+    $("#login-form")
+      .delay(100)
+      .fadeIn(100);
+    $("#register-form").fadeOut(100);
+    $("#register-form-link").removeClass("active");
+    $(this).addClass("active");
+    e.preventDefault();
+  });
+  $("#register-form-link").click(function(e) {
+    $("#register-form")
+      .delay(100)
+      .fadeIn(100);
+    $("#login-form").fadeOut(100);
+    $("#login-form-link").removeClass("active");
+    $(this).addClass("active");
+    e.preventDefault();
+  });
 });
 
 // //function to check for unique email
@@ -59,79 +61,75 @@ $(function () {
 // 	}
 // }
 
-
 //validate password and confirm-password match
 function check(input) {
-	if (input.value != document.getElementById('rpassword').value) {
-		input.setCustomValidity('Password Must be Matching.');
-	} else {
-		input.setCustomValidity('');
-	}
+  if (input.value != document.getElementById("rpassword").value) {
+    input.setCustomValidity("Password Must be Matching.");
+  } else {
+    input.setCustomValidity("");
+  }
 }
 let user = {
-	id: 0,
-	fname: '',
-	lname: '',
-	email: '',
-	number: '',
-	password: ''
-}
+  id: 0,
+  fname: "",
+  lname: "",
+  email: "",
+  number: "",
+  password: ""
+};
 
 //local storage
 //check if browser supports local storage
 var i = 0;
 
-
 //store details in local storage
 function register() {
-	event.preventDefault();
-	console.log("inregister");
-	var newDate = new Date();
-	var values = new Array();
-	var itemId = newDate.getTime();
-	var fname = $('#fname').val();
-	var lname = $('#lname').val();
-	var email = $('#email').val();
-	var number = $('#number').val();
-	var password = $('#rpassword').val();
-	// password = "hi";
-	// var myPassword = "siefhreotwnjvdsnfrjbgi";
-	// var encrypted = CryptoJS.AES.encrypt(password, myPassword);
-	// var decrypted = CryptoJS.AES.decrypt(encrypted, myPassword);
-	// decrypted.toString(CryptoJS.enc.Utf8);
-	// console.log(encrypted);
-	// console.log(decrypted);
+  event.preventDefault();
+  console.log("inregister");
+  var newDate = new Date();
+  var values = new Array();
+  var itemId = newDate.getTime();
+  var fname = $("#fname").val();
+  var lname = $("#lname").val();
+  var email = $("#email").val();
+  var number = $("#number").val();
+  var password = $("#rpassword").val();
+  // password = "hi";
+  // var myPassword = "siefhreotwnjvdsnfrjbgi";
+  // var encrypted = CryptoJS.AES.encrypt(password, myPassword);
+  // var decrypted = CryptoJS.AES.decrypt(encrypted, myPassword);
+  // decrypted.toString(CryptoJS.enc.Utf8);
+  // console.log(encrypted);
+  // console.log(decrypted);
 
-	user = {
-		id: ++i,
-		fname: fname,
-		lname: lname,
-		email: email,
-		number: number,
-		password: password
-	}
+  user = {
+    id: ++i,
+    fname: fname,
+    lname: lname,
+    email: email,
+    number: number,
+    password: password
+  };
 
-	localStorage.setItem(user.id, JSON.stringify(user));
-	console.log("inregisstored to localer");
-	window.location = 'album.html';
-	console.log("4");
+  localStorage.setItem(user.id, JSON.stringify(user));
+  console.log("inregisstored to localer");
+  window.location = "album.html";
+  console.log("4");
 }
 
 //User login
 
-
 function logg() {
-	event.preventDefault();
-	console.log("inlogin")
-	var username = $('#username').val();
-	var password = $('#password').val();
-	let data = JSON.parse(localStorage.getItem(1));
-	// document.getElementById('lo').innerHTML = data.email + data.password;
-	// window.location = 'album.html';
-	if (data.password == password && data.email == username) {
-		window.location.replace('album.html');
-	}
-
+  event.preventDefault();
+  console.log("inlogin");
+  var username = $("#username").val();
+  var password = $("#password").val();
+  let data = JSON.parse(localStorage.getItem(1));
+  // document.getElementById('lo').innerHTML = data.email + data.password;
+  // window.location = 'album.html';
+  if (data.password == password && data.email == username) {
+    window.location.replace("album.html");
+  }
 }
 // setTimeout(() => {
 
@@ -144,4 +142,4 @@ function logg() {
 // }
 
 //remember me functionality
-//  	
+//

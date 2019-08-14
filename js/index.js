@@ -60,7 +60,31 @@ let songs = [{
     }
 
 ];
-
+let playlists = [{
+        id: 1,
+        name: "whatever",
+        noOfSongs: 5,
+        by: "sadfdf"
+    },
+    {
+        id: 2,
+        name: "some",
+        noOfSongs: 8,
+        by: "sadfdf"
+    },
+    {
+        id: 3,
+        name: "none",
+        noOfSongs: 7,
+        by: "sadfdf"
+    },
+    {
+        id: 4,
+        name: "noobie",
+        noOfSongs: 6,
+        by: "sadfdf"
+    }
+];
 //get songs
 let getSongs = songsIds => {
     let songss = [];
@@ -75,7 +99,7 @@ let getSongs = songsIds => {
                 })
                 //console.log(songs[i].id) <div class='play-pause'></div>
                 document.getElementsByClassName('song-container')[i].innerHTML = " <div class='playlist-song-metadata'><span class='song-name'>" + songs[i].songTitle + "</span><span class='song-album'>" + songs[i].artistName + "</span></div><img src=" + songs[i].imgPath + ">";
-                document.getElementById("dis").innerHTML += "<br>" + songs[i].songTitle + songs[i].id;
+                // document.getElementById("dis").innerHTML += "<br>" + songs[i].songTitle + songs[i].id;
             }
         }
     }
@@ -180,11 +204,46 @@ let getPrevSong = () => {
     myaudio.load();
     myaudio.play();
 }
+//get songs
+let getSongss = (songsIds, genre) => {
+    let songss = [];
+    for (let index = 0; index < songsIds.length; index++) {
+        for (let i = 0; i < songs.length; i++) {
+            if (songsIds[index] == songs[i].id) {
+                if (genre == songs[i].genre) {
+                    songss.push({
+                        "songTitle": songs[i].songTitle,
+                        "artistName": songs[i].artistName,
+                        "filePath": songs[i].filePath,
+                        "imgPath": songs[i].imgPath,
+                        "genre": songs[i].genre
+                    })
+                } else {
+                    songss.push({
+                        "songTitle": songs[i].songTitle,
+                        "artistName": songs[i].artistName,
+                        "filePath": songs[i].filePath,
+                        "imgPath": songs[i].imgPath
+                    })
+                }
 
+                //console.log(songs[i].id) <div class='play-pause'></div>
+                document.getElementsByClassName('song-container')[i].innerHTML = " <div class='playlist-song-metadata'><span class='song-name'>" + songs[i].songTitle + "</span><span class='song-album'>" + songs[i].artistName + "</span></div><img src=" + songs[i].imgPath + ">";
+                // document.getElementById("dis").innerHTML += "<br>" + songs[i].songTitle + songs[i].id;
+            }
+        }
+    }
+    return songss;
+};
+// pop songs
+let popSongs = () => {
+    getSongss([1, 2, 3, 4, 5, 6], "pop")
+}
+popSongs();
 
 // Automatically plays Next song
-let myaudio = document.getElementsByTagName("audio")[0];
-myaudio.addEventListener("ended", getNewSong, false);
+// let myaudio = document.getElementsByTagName("audio")[0];
+// myaudio.addEventListener("ended", getNewSong, false);
 // plays next song 
 document.getElementById('next').addEventListener('click', () => {
     getNewSong();
@@ -251,7 +310,9 @@ let playPause = (ele, audioEle) => {
 document.getElementById('play-pause').addEventListener('click', () => {
     let shuff = document.getElementById('play-pause');
     var audioEle = document.getElementsByTagName('audio')[0];
+    let back = document.getElementById('playlist-play-pause');
     playPause(shuff, audioEle);
+    playPauseb(back, audioEle)
 });
 
 let playPauseb = (ele, audioEle) => {
@@ -272,9 +333,11 @@ let playPauseb = (ele, audioEle) => {
 }
 document.getElementById('playlist-play-pause').addEventListener('click', () => {
 
-    let shuff = document.getElementById('playlist-play-pause');
+    let back = document.getElementById('playlist-play-pause');
     var audioEle = document.getElementsByTagName('audio')[0];
-    playPauseb(shuff, audioEle);
+    let front = document.getElementById('play-pause');
+    playPauseb(back, audioEle);
+    playPause(front, audioEle);
     // if (shuff.classList.length == 1) {
     //     shuff.classList.add('playlist-play');
     //     audioEle.play();
@@ -289,10 +352,6 @@ document.getElementById('playlist-play-pause').addEventListener('click', () => {
     //     audioEle.pause();
     // }
 });
-
-
-
-
 
 let playCurrentSongFromPlaylist = (songId) => {
 
@@ -359,7 +418,6 @@ let shuffledSongs = () => {
     getSongs(shuffledSongIds);
 };
 
-
 document.getElementById('shuffle').addEventListener('click', () => {
     let shuff = document.getElementById('shuffle');
     if (shuff.classList[1] == 'shuffle-off') {
@@ -394,3 +452,98 @@ document.getElementsByClassName('closePlaylist')[0].addEventListener('click', ()
     back.style.display = "none";
     front.style.display = "block";
 });
+
+
+// // set recently played songs
+// let setRecentlyPlayed = () => {
+//     localStorage.setItem(user.id, [1, 2, 3]);
+//   };
+
+//   setRecentlyPlayed();
+//   // dispaly recently played search
+//   let displayRecentlyPlayed = () => {
+//     let songsPlayed = getRecentlyPlayed();
+//     let songsIds = songsPlayed.split(",").map(Number);
+//     // hack to search
+//     // console.log(songsIds);
+//     for (let index = 0; index < songsIds.length; index++) {
+//       for (let i = 0; i < songs.length; i++) {
+//         if (songsIds[index] == songs[i].id) {
+//           // console.log(songs[i].id)
+//           document.getElementById("dis").innerHTML +=
+//             "<br>" + songs[i].songTitle + songs[i].id;
+//         }
+//       }
+//     }
+//   };
+
+//   // update the recntly played songs
+//   let updateRecentlyPlayed = songNo => {
+//     let songsPlayed = getRecentlyPlayed();
+//     let songsIds = songsPlayed.split(",").map(Number);
+//     console.log(songsIds);
+
+//     if (songsIds.length == 0) {
+//       songsIds = [];
+//       songsIds.push(songNo);
+//       localStorage.setItem(user.id, songsIds);
+//     } else {
+//       songsIds.push(songNo);
+//       localStorage.setItem(user.id, songsIds);
+//     }
+//     console.log(songsIds);
+//   };
+//   // get recently played
+//   let getRecentlyPlayed = () => {
+//     return localStorage.getItem(user.id);
+//   };
+
+
+
+// let getArtists = () => {
+//     let artists = [];
+//     songs.forEach(element => {
+//         artists.push(element.artistName);
+//     });
+//     console.log(artists);
+//     return artists;
+// };
+// // get songs according to genres
+// //INCOMLETE
+// let findSongsAccordingGenre = () => {
+//     let songsAccordingToGenre = new Map([
+//         ["", []]
+//     ]);
+//     for (let index = 0; index < songs.length; index++) {
+//         let genre = songs[index].genre;
+
+//         console.log(genre);
+//         console.log(songsAccordingToGenre.get("hiphop"));
+//         for (let j = 0; j < songsAccordingToGenre.size; j++) {
+//             if (songsAccordingToGenre.has(genre)) {
+//                 var ids = [];
+//                 ids.push(songsAccordingToGenre.get(genre));
+//                 console.log(ids.includes(songs[index].id));
+//                 if (ids.includes(songs[index].id) == false) {
+//                     console.log(ids);
+//                     songsAccordingToGenre.set(genre, ids);
+//                     break;
+//                 }
+//             } else {
+//                 songsAccordingToGenre.set(genre, [songs[index].id]);
+//                 break;
+//             }
+//         }
+//     }
+//     console.log(songsAccordingToGenre);
+//     return songsAccordingToGenre;
+// };
+// let getSongsAccordingToGenre = genre => {
+//     let genreWiseSongs = findSongsAccordingGenre();
+//     let songsIds = genreWiseSongs.get(genre);
+//     console.log(songsIds);
+//     let genreSongs = songs.filter(ele => {
+//         songsIds.forEach(id => ele.id == id);
+//     });
+//     console.log(genreSongs);
+// };

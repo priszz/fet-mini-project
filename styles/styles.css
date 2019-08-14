@@ -25,43 +25,28 @@ body {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.currentTop {
-  height: 64px;
-  display: flex;
-  width: 100%;
-  align-items: center;
+.currentTop ,.backTop {
+    height: 64px;
+    display: flex;
+    width: 100%;
+    align-items: center;
 }
 
-.backTop {
-  height: 64px;
-  display: flex;
-  width: 100%;
-  align-items: center;
+.currentTop div ,.backTop  div {
+    flex: 1;
 }
 
-.currentTop div {
-  flex: 1;
-}
-
-.backTop div {
-  flex: 1;
-}
 
 .center {
   text-align: center;
 }
 
-.showPlaying {
-  float: right;
-  cursor: pointer;
-  margin-right: 16px;
+.showPlaying, .closePlaylist {
+    float: right;
+    cursor: pointer;
+    margin-right: 16px;
 }
 
-.backTop img.closePlaylist {
-  float: right;
-  cursor: pointer;
-  margin-right: 16px;
-}
 
 #player-back {
   position: absolute;
@@ -94,7 +79,7 @@ body {
 }
 
 .song-album {
-  color: #414344 display;
+  color: #414344 ;
   display: block;
   text-align: center;
   font-size: 20px;
@@ -107,7 +92,7 @@ body {
   align-items: center;
 }
 
-.shuffle {
+.shuffle , .repeat {
   display: inline-block;
   width: 19px;
   height: 16px;
@@ -123,8 +108,8 @@ body {
 }
 
 .shuffle-on {
-  background-repeat: no-repeat;
-  background: url("../images/shuffle-on.svg");
+    background: url("../images/shuffle-on.svg");
+    background-repeat: no-repeat;
 }
 
 .prev {
@@ -140,14 +125,14 @@ body {
 }
 
 .playlist-prev {
-  display: inline-block;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-  background: url("../images/previous.svg");
-  vertical-align: middle;
-  background-size: 32px 32px;
-  background-repeat: no-repeat;
+    background: url("../images/previous.svg");
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    vertical-align: middle;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
 }
 
 .play-pause {
@@ -161,98 +146,90 @@ body {
 }
 
 .playlist-play-pause {
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  background: url("../images/play.svg");
-  vertical-align: middle;
-  background-size: 32px 32px;
-  background-repeat: no-repeat;
+    background: url("../images/play.svg");
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    vertical-align: middle;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
 }
 
 .play {
-  margin-right: 16px;
-  display: inline-block;
-  width: 65px;
-  height: 65px;
-  background-size: 65px 65px;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-  background: url("../images/play.svg");
+    background: url("../images/play.svg");
+    margin-right: 16px;
+    display: inline-block;
+    width: 65px;
+    height: 65px;
+    background-size: 65px 65px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
 }
-
-.song-controller .playlist-play {
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  background-size: 32px 32px;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-  background: url("../images/play.svg");
+.playlist-play {
+    background: url("../images/play.svg");
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
 }
 
 .pause {
-  margin-right: 16px;
-  display: inline-block;
-  width: 65px;
-  height: 65px;
-  background-size: 65px 65px;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-  background: url("../images/pause.svg");
+    background: url("../images/pause.svg");
+    margin-right: 16px;
+    display: inline-block;
+    width: 65px;
+    height: 65px;
+    background-size: 65px 65px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
 }
 
-.song-controller .playlist-pause {
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  background-size: 32px 32px;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-  background: url("../images/pause.svg");
+.playlist-pause {
+    background: url("../images/pause.svg");
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
 }
 
 .next {
-  display: inline-block;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-  background: url("../images/next.svg");
-  vertical-align: middle;
-  background-size: 32px 32px;
-  background-repeat: no-repeat;
-  margin-right: 16px;
+    background: url("../images/next.svg");
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    vertical-align: middle;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    margin-right: 16px;
 }
 
 .playlist-next {
-  display: inline-block;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-  background: url("../images/next.svg");
-  vertical-align: middle;
-  background-size: 32px 32px;
-  background-repeat: no-repeat;
+    background: url("../images/next.svg");
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    vertical-align: middle;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
 }
 
-.repeat {
-  display: inline-block;
-  width: 19px;
-  height: 16px;
-  cursor: pointer;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-}
+
 
 .repeat-off {
-  background-repeat: no-repeat;
-  background: url("../images/repeat-off.svg");
+    background: url("../images/repeat-off.svg");
+    background-repeat: no-repeat;
 }
 
 .repeat-on {
-  background-repeat: no-repeat;
-  background: url("../images/repeat-on.svg");
+    background: url("../images/repeat-on.svg");
+    background-repeat: no-repeat;
 }
 
 .controls::after {
@@ -385,3 +362,5 @@ body {
     opacity: 1;
   }
 }
+
+/*remove repeated code*/

@@ -24,6 +24,36 @@ body {
 	background: #f9f9f9;
 }
 
+.dropdown-content a {
+	float: none;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+.dropdown-content a:hover {
+	background-color: black;
+	color: white;
+}
+
+#page-wrapper {
+	margin-top: -20px;
+}
+
+#navigation .navbar-collapse {
+	justify-content: flex-end;
+}
+
+#navigation {
+	width: 100%;
+}
+
+.bg-dark {
+	background-color: #000000 !important;
+}
+
 .music-left {
 	float: left;
 	width: 100%;
